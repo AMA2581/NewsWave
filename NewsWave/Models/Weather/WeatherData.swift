@@ -9,15 +9,16 @@ import Foundation
 
 struct WeatherData: Codable {
     let name: String
-    let main: Main
+    let main: WMain
     let wind: Wind
     let weather: [Weather]
 }
 
-struct Main: Codable {
+struct WMain: Codable {
     let temp: Double
     let feels_like: Double
     let humidity: Int
+    let pressure: Int
 }
 
 struct Weather: Codable {

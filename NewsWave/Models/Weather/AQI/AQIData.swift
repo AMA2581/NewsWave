@@ -8,13 +8,23 @@
 import Foundation
 
 struct AQIData: Codable {
-    var list: [AQIList]
+    let coord: AQICoord
+    let list: [AQIList]
 }
 
+// MARK: - Coord
+struct AQICoord: Codable {
+    let lon, lat: Int
+}
+
+// MARK: - List
 struct AQIList: Codable {
-    var main: AQIMain
+    let main: AQIMain
+    let components: [String: Double]
+    let dt: Int
 }
 
+// MARK: - Main
 struct AQIMain: Codable {
-    var aqi: Int
+    let aqi: Int
 }

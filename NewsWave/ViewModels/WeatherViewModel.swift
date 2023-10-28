@@ -18,6 +18,7 @@ final class WeatherViewModel: NSObject, ObservableObject {
     @Published private(set) var wind = "2.5"
     @Published private(set) var humidity = 0
     @Published private(set) var feelLike = 0
+    @Published private(set) var pressure = "25.00"
     
 
     let locationManager = CLLocationManager()
@@ -64,6 +65,7 @@ extension WeatherViewModel: WeatherManagerDelegate {
             self.wind = weather.windString
             self.feelLike = weather.feelLikeInt
             self.humidity = weather.humidity
+            self.pressure = weather.pressureString
         }
     }
 

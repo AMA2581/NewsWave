@@ -14,6 +14,7 @@ struct WeatherModel {
     let wind: Double
     let feelLike: Double
     let humidity: Int
+    let pressure: Int
     
     var windString: String {
         return String(format: "%.1f", wind)
@@ -25,6 +26,18 @@ struct WeatherModel {
     
     var feelLikeInt: Int {
         return Int(feelLike)
+    }
+    
+    private var pressureINHG: Double {
+        return Double(pressure) * 0.02953
+    }
+    
+    private var pressureMMHG: Double {
+        return Double(pressure) * 0.75006
+    }
+    
+    var pressureString: String {
+        return String(format: "%.2f", Settings.measurementUnit == "imperial" ? pressureINHG : pressureMMHG)
     }
 
     var conditionName: String {
