@@ -14,13 +14,13 @@ struct InitialView: View {
                 .tabItem {
                     Label("NewsWave", systemImage: "newspaper.fill")
                 }
-            SearchView()
-                .tabItem {
-                    Label("Search", systemImage: "magnifyingglass")
-                }
             WeatherView()
                 .tabItem {
                     Label("Weather", systemImage: "cloud.sun.fill")
+                }
+            SearchView()
+                .tabItem {
+                    Label("Search", systemImage: "magnifyingglass")
                 }
             SettingsView()
                 .tabItem {

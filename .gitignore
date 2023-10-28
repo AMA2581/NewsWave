@@ -5,6 +5,8 @@
 .DS_Store
 NewsWave/apiKey.rtf
 apiKey.rtf
+NewsWave/APIKeys.swift
+APIKeys.swift
 
 ## User settings
 xcuserdata/

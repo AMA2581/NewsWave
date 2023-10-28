@@ -23,6 +23,7 @@ struct NewsCard: View {
             }
             .padding(15)
         }
+        .background(.thickMaterial)
         .cornerRadius(20)
     }
 }
