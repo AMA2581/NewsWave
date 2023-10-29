@@ -19,6 +19,7 @@ final class WeatherViewModel: NSObject, ObservableObject {
     @Published private(set) var humidity = 0
     @Published private(set) var feelLike = 0
     @Published private(set) var pressure = "25.00"
+    @Published private(set) var isLoading = true
     
 
     let locationManager = CLLocationManager()
@@ -46,6 +47,7 @@ extension WeatherViewModel: CLLocationManagerDelegate {
             locationManager.stopUpdatingLocation()
             let lat = location.coordinate.latitude
             let lon = location.coordinate.longitude
+            isLoading = true
             weatherManager.fetchWeather(latitude: lat, longitude: lon)
             aqiManager.fetchAQI(latitude: lat, longitude: lon)
         }
@@ -66,6 +68,7 @@ extension WeatherViewModel: WeatherManagerDelegate {
             self.feelLike = weather.feelLikeInt
             self.humidity = weather.humidity
             self.pressure = weather.pressureString
+            self.isLoading = false
         }
     }
 
