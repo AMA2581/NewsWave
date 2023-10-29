@@ -8,5 +8,7 @@
 import Foundation
 
 final class SettingsViewModel: ObservableObject {
+    @Published private(set) var measurementUnit = Settings.measurementUnits[0]
+    
     
 }

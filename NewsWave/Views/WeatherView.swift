@@ -15,7 +15,7 @@ struct WeatherView: View {
             ScrollView {
                 HStack {
                     VStack(alignment: .leading) {
-                        Text(Settings.measurementUnit == "imperial" ? "\(viewModel.temprature)°F" : "\(viewModel.temprature)°C")
+                        Text(Settings.measurementUnits[0] == "imperial" ? "\(viewModel.temprature)°F" : "\(viewModel.temprature)°C")
                             .font(.system(size: 50, weight: .bold))
                         Text(viewModel.location)
                             .font(.system(size: 35))

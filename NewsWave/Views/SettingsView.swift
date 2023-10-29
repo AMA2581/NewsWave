@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @StateObject var viewModel = SettingsViewModel()
+    @State var tag = Settings.measurementUnits
+    
     var body: some View {
         NavigationStack {
             List {
@@ -15,9 +18,10 @@ struct SettingsView: View {
                     Text("NewsWave Settings")
                 }
                 Section("Weather") {
-                    Picker(selection:  .constant(1), label: Text("Units")) {
-                        Text("Imperial").tag(1)
-                        Text("Meteric").tag(2)
+                    Picker(selection: $tag, 
+                           label: Text("Units")) {
+                        Text("Imperial").tag("imperial")
+                        Text("Meteric").tag("meteric")
                     }
                 }
             }

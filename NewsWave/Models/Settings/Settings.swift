@@ -8,5 +8,6 @@
 import Foundation
 
 struct Settings {
-    static var measurementUnit: String = "imperial"
+    static var measurementUnits = ["imperial", "meteric"]
+    
 }

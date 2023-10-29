@@ -37,7 +37,7 @@ struct WeatherModel {
     }
     
     var pressureString: String {
-        return String(format: "%.2f", Settings.measurementUnit == "imperial" ? pressureINHG : pressureMMHG)
+        return String(format: "%.2f", Settings.measurementUnits[0] == "imperial" ? pressureINHG : pressureMMHG)
     }
 
     var conditionName: String {
