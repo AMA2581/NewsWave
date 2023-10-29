@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct NewsWaveView: View {
+    @StateObject var viewModel = NewsWaveViewModel()
+
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -15,9 +17,21 @@ struct NewsWaveView: View {
                     HeadlineText(headline: "Headlines")
                     ScrollView(.horizontal) {
                         HStack(alignment: .top, spacing: 25) {
-                            NewsCard()
-                            NewsCard()
-                            NewsCard()
+                            NewsCard(urlToImage: viewModel.urlToImage,
+                                     title: viewModel.title,
+                                     source: viewModel.source)
+                            NewsCard(urlToImage: viewModel.urlToImage,
+                                     title: viewModel.title,
+                                     source: viewModel.source)
+                            NewsCard(urlToImage: viewModel.urlToImage,
+                                     title: viewModel.title,
+                                     source: viewModel.source)
+                            NewsCard(urlToImage: viewModel.urlToImage,
+                                     title: viewModel.title,
+                                     source: viewModel.source)
+                            NewsCard(urlToImage: viewModel.urlToImage,
+                                     title: viewModel.title,
+                                     source: viewModel.source)
                         }
                         .padding(.horizontal, 25)
                     }
@@ -49,6 +63,9 @@ struct NewsWaveView: View {
             }
             .navigationTitle("NewsWave")
         }
+        .onAppear(perform: {
+            viewModel.refreshNewsWave()
+        })
     }
 }
 
