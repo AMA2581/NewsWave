@@ -31,6 +31,9 @@
 		2EB960C52AE1BA3D00C3CFD7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EB960C42AE1BA3D00C3CFD7 /* Preview Assets.xcassets */; };
 		2EB960CC2AE1BBC400C3CFD7 /* apiKey.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2EB960CB2AE1BBC400C3CFD7 /* apiKey.rtf */; };
 		2EB960CE2AE1BD6D00C3CFD7 /* NewsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB960CD2AE1BD6D00C3CFD7 /* NewsCard.swift */; };
+		2EF1BD452AEE6D8C00F96FBE /* NewsWaveManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1BD442AEE6D8C00F96FBE /* NewsWaveManagerDelegate.swift */; };
+		2EF1BD472AEE6E9B00F96FBE /* NewsWaveArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1BD462AEE6E9B00F96FBE /* NewsWaveArticleModel.swift */; };
+		2EF1BD492AEE7EC600F96FBE /* NewsWaveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1BD482AEE7EC600F96FBE /* NewsWaveViewModel.swift */; };
 		2EFE5A1E2AE3167700E5A600 /* CategoriesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE5A1D2AE3167700E5A600 /* CategoriesItem.swift */; };
 		2EFE5A202AE31D2900E5A600 /* NewsWaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE5A1F2AE31D2800E5A600 /* NewsWaveView.swift */; };
 		2EFE5A222AE31DE200E5A600 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE5A212AE31DE200E5A600 /* WeatherView.swift */; };
@@ -64,6 +67,9 @@
 		2EB960C42AE1BA3D00C3CFD7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2EB960CB2AE1BBC400C3CFD7 /* apiKey.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = apiKey.rtf; sourceTree = "<group>"; };
 		2EB960CD2AE1BD6D00C3CFD7 /* NewsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCard.swift; sourceTree = "<group>"; };
+		2EF1BD442AEE6D8C00F96FBE /* NewsWaveManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsWaveManagerDelegate.swift; sourceTree = "<group>"; };
+		2EF1BD462AEE6E9B00F96FBE /* NewsWaveArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsWaveArticleModel.swift; sourceTree = "<group>"; };
+		2EF1BD482AEE7EC600F96FBE /* NewsWaveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsWaveViewModel.swift; sourceTree = "<group>"; };
 		2EFE5A1D2AE3167700E5A600 /* CategoriesItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesItem.swift; sourceTree = "<group>"; };
 		2EFE5A1F2AE31D2800E5A600 /* NewsWaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsWaveView.swift; sourceTree = "<group>"; };
 		2EFE5A212AE31DE200E5A600 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
@@ -131,7 +137,9 @@
 			children = (
 				2E7E3E892AE3DC3B00871394 /* NewsWaveData.swift */,
 				2E7E3E8B2AE3DE6A00871394 /* NewsWaveModel.swift */,
+				2EF1BD462AEE6E9B00F96FBE /* NewsWaveArticleModel.swift */,
 				2E7E3E8D2AE3DE9D00871394 /* NewsWaveManager.swift */,
+				2EF1BD442AEE6D8C00F96FBE /* NewsWaveManagerDelegate.swift */,
 			);
 			path = NewsWave;
 			sourceTree = "<group>";
@@ -141,6 +149,7 @@
 			children = (
 				2E7E3E962AE3E45F00871394 /* WeatherViewModel.swift */,
 				2EB4E9522AED8D0900C04699 /* SettingsViewModel.swift */,
+				2EF1BD482AEE7EC600F96FBE /* NewsWaveViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -281,8 +290,10 @@
 				2EFE5A262AE3209300E5A600 /* SearchView.swift in Sources */,
 				2EFE5A242AE3201000E5A600 /* SettingsView.swift in Sources */,
 				2E4E5B422AECCC7700800143 /* AQIData.swift in Sources */,
+				2EF1BD492AEE7EC600F96FBE /* NewsWaveViewModel.swift in Sources */,
 				2E7E3E8C2AE3DE6A00871394 /* NewsWaveModel.swift in Sources */,
 				2EFE5A202AE31D2900E5A600 /* NewsWaveView.swift in Sources */,
+				2EF1BD472AEE6E9B00F96FBE /* NewsWaveArticleModel.swift in Sources */,
 				2E4E5B3D2AECC3F000800143 /* AQIModel.swift in Sources */,
 				2E7E3E972AE3E45F00871394 /* WeatherViewModel.swift in Sources */,
 				2EFE5A1E2AE3167700E5A600 /* CategoriesItem.swift in Sources */,
@@ -302,6 +313,7 @@
 				2EB960BE2AE1BA3C00C3CFD7 /* NewsWaveApp.swift in Sources */,
 				2E7E3E822AE3DB7100871394 /* WeatherModel.swift in Sources */,
 				2E7E3E942AE3E2EE00871394 /* Settings.swift in Sources */,
+				2EF1BD452AEE6D8C00F96FBE /* NewsWaveManagerDelegate.swift in Sources */,
 				2E8FB8182AEC549000DA7F6D /* AQIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

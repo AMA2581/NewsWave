@@ -8,13 +8,27 @@
 import SwiftUI
 
 struct NewsCard: View {
+    var urlToImage: String
+    @State var title: String
+    @State var source: String
     var body: some View {
-        VStack (alignment: .leading) {
-            Image(.defaultNewsCardBackground)
-                .resizable()
-                .frame(width: 300, height: 250)
-                .aspectRatio(contentMode: .fill)
-            VStack (alignment: .leading, spacing: 6 ) {
+        VStack(alignment: .leading) {
+            AsyncImage(url: URL(string: urlToImage), content: { image in
+                image
+                    .resizable()
+                    .frame(width: 300, height: 250)
+                    .aspectRatio(contentMode: .fill)
+            }, placeholder: {
+                ZStack {
+                    Image(.defaultNewsCardBackground)
+                        .resizable()
+                        .frame(width: 300, height: 250)
+                        .aspectRatio(contentMode: .fit)
+                    ProgressView()
+                }
+            })
+
+            VStack(alignment: .leading, spacing: 6) {
                 Text("Source")
                     .font(.system(size: 18, weight: .regular))
                 Text("Title")
@@ -29,5 +43,5 @@ struct NewsCard: View {
 }
 
 #Preview {
-    NewsCard()
+    NewsCard(urlToImage: "https://picsum.photos/400", title: "Title", source: "Source")
 }
