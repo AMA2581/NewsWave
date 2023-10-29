@@ -17,21 +17,13 @@ struct NewsWaveView: View {
                     HeadlineText(headline: "Headlines")
                     ScrollView(.horizontal) {
                         HStack(alignment: .top, spacing: 25) {
-                            NewsCard(urlToImage: viewModel.urlToImage,
-                                     title: viewModel.title,
-                                     source: viewModel.source)
-                            NewsCard(urlToImage: viewModel.urlToImage,
-                                     title: viewModel.title,
-                                     source: viewModel.source)
-                            NewsCard(urlToImage: viewModel.urlToImage,
-                                     title: viewModel.title,
-                                     source: viewModel.source)
-                            NewsCard(urlToImage: viewModel.urlToImage,
-                                     title: viewModel.title,
-                                     source: viewModel.source)
-                            NewsCard(urlToImage: viewModel.urlToImage,
-                                     title: viewModel.title,
-                                     source: viewModel.source)
+                            if viewModel.isLoaded {
+                                ForEach(1...5, id: \.self) { index in
+                                    NewsCard(urlToImage: $viewModel.newsWaveArticleModel[index].urlToImage,
+                                             title: $viewModel.newsWaveArticleModel[index].title,
+                                             source: $viewModel.newsWaveArticleModel[index].source)
+                                }
+                            }
                         }
                         .padding(.horizontal, 25)
                     }

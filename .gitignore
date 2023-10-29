@@ -11,6 +11,7 @@ NewsWave.xcodeproj/project.xcworkspace/xcuserdata/ama25.xcuserdatad/UserInterfac
 
 ## User settings
 xcuserdata/
+NewsWave.xcodeproj/project.xcworkspace/xcuserdata/
 
 ## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
 *.xcscmblueprint

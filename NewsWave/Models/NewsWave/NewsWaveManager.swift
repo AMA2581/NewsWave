@@ -49,14 +49,14 @@ struct NewsWaveManager {
                 let publishedAt = article.publishedAt
                 let content = article.content
                 
-                let tempArticle = NewsWaveArticleModel(source: source,
-                                                       author: author,
-                                                       title: title,
-                                                       description: description,
-                                                       url: url,
-                                                       urlToImage: urlToImage,
-                                                       publishedAt: publishedAt,
-                                                       content: content)
+                let tempArticle = NewsWaveArticleModel(source: source ?? "",
+                                                       author: author ?? "",
+                                                       title: title ?? "",
+                                                       description: description ?? "",
+                                                       url: url ?? "",
+                                                       urlToImage: urlToImage ?? "",
+                                                       publishedAt: publishedAt ?? "",
+                                                       content: content ?? "")
                 if newsWaveModel == nil {
                     newsWaveModel = NewsWaveModel(articles: [tempArticle])
                 } else {

@@ -8,21 +8,32 @@
 import Foundation
 
 class NewsWaveViewModel: ObservableObject {
-    @Published private(set) var source = "source"
-    @Published private(set) var author = "author"
-    @Published private(set) var title = "title"
-    @Published private(set) var description = "description"
-    @Published private(set) var url = "url"
-    @Published private(set) var urlToImage = ""
-    @Published private(set) var publishedAt = "publishedAt"
-    @Published private(set) var content = "content"
+    var source = "source"
+    var author = "author"
+    var title = "title"
+    var description = "description"
+    var url = "url"
+    var urlToImage = ""
+    var publishedAt = "publishedAt"
+    var content = "content"
+    var id = UUID()
+    @Published var isLoaded = false
+    @Published var newsWaveArticleModel: [NewsWaveArticleModel] = [NewsWaveArticleModel(source: "source",
+                                                                                        author: "author",
+                                                                                        title: "title",
+                                                                                        description: "description",
+                                                                                        url: "url",
+                                                                                        urlToImage: "",
+                                                                                        publishedAt: "publishedAt",
+                                                                                        content: "content")]
+    var index = 1
 
     var newsWaveManager = NewsWaveManager()
 
     init() {
         newsWaveManager.delegate = self
     }
-    
+
     func refreshNewsWave() {
         newsWaveManager.fetchTopHeadlines()
     }
@@ -31,14 +42,28 @@ class NewsWaveViewModel: ObservableObject {
 extension NewsWaveViewModel: NewsWaveManagerDelegate {
     func didUpdateNews(_ newsWaveManager: NewsWaveManager, news: NewsWaveModel) {
         DispatchQueue.main.async {
-            self.source = news.articles[0].source ?? "source"
-            self.author = news.articles[0].author ?? "author"
-            self.title = news.articles[0].title ?? "title"
-            self.description = news.articles[0].description ?? "description"
-            self.url = news.articles[0].url ?? "url"
-            self.urlToImage = news.articles[0].urlToImage ?? ""
-            self.publishedAt = news.articles[0].publishedAt ?? "publishedAt"
-            self.content = news.articles[0].publishedAt ?? "content"
+            for article in news.articles {
+                self.source = article.source
+                self.author = article.author
+                self.title = article.title
+                self.description = article.description
+                self.url = article.url
+                self.urlToImage = article.urlToImage
+                self.publishedAt = article.publishedAt
+                self.content = article.publishedAt
+                self.id = article.id
+                self.newsWaveArticleModel.append(NewsWaveArticleModel(id: self.id,
+                                                                      source: self.source,
+                                                                      author: self.author,
+                                                                      title: self.title,
+                                                                      description: self.description,
+                                                                      url: self.url,
+                                                                      urlToImage: self.urlToImage,
+                                                                      publishedAt: self.publishedAt,
+                                                                      content: self.content))
+            }
+            self.newsWaveArticleModel.remove(at: 0)
+            self.isLoaded = true
         }
     }
 
@@ -46,3 +71,15 @@ extension NewsWaveViewModel: NewsWaveManagerDelegate {
         print(error)
     }
 }
+
+// class Article {
+//    var source = "source"
+//    var author = "author"
+//    var title = "title"
+//    var description = "description"
+//    var url = "url"
+//    var urlToImage = ""
+//    var publishedAt = "publishedAt"
+//    var content = "content"
+//    var id = UUID(uuidString: "")
+// }
