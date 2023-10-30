@@ -16,14 +16,13 @@ struct NewsCard: View {
             AsyncImage(url: URL(string: urlToImage), content: { image in
                 image
                     .resizable()
+                    .aspectRatio(contentMode: .fill)
                     .frame(width: 300, height: 250)
-                    .aspectRatio(contentMode: .fit)
             }, placeholder: {
                 ZStack {
                     Image(.defaultNewsCardBackground)
                         .resizable()
                         .frame(width: 300, height: 250)
-                        .aspectRatio(contentMode: .fit)
                     ProgressView()
                 }
             })
